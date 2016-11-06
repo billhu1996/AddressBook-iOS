@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Website</key>
+	<string>http://api.billhubo.com/api/v2/</string>
+	<key>Verfycode Website</key>
+	<string>https://api.netease.im/sms/sendcode.action/</string>
+	<key>Paths</key>
+	<dict>
+		<key>Contact Info</key>
+		<string>db/_table/contact_info</string>
+		<key>Contact</key>
+		<string>db/_table/contact</string>
+		<key>Contact Group</key>
+		<string>db/_table/contact_group</string>
+		<key>Contact Group Relationship</key>
+		<string>db/_table/contact_group_relationship</string>
+		<key>Contact In Group</key>
+		<string>db/_table/contact_in_group</string>
+		<key>Login</key>
+		<string>user/session/</string>
+		<key>Register</key>
+		<string>user/register/</string>
+		<key>Change Password</key>
+		<string>user/password/</string>
+	</dict>
+	<key>APIKey</key>
+	<string>36fda24fe5588fa4285ac6c6c2fdfbdb6b6bc9834699774c9bf777f706d05a88</string>
+	<key>Verfycode API Key</key>
+	<string>17dca343d1024</string>
+	<key>Verfycode App Secret</key>
+	<string>48ee667c95945354c19337dc8a8608d6</string>
+</dict>
+</plist>

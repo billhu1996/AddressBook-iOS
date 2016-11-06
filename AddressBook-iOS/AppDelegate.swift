@@ -12,10 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var rootVC: UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        SMSSDK.registerApp(NetworkManager.default().smSappKey, withSecret: NetworkManager.default().smSappSecret)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        if NetworkManager.default().token != nil {
+            LoginManager.refreshToken()
+            rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
+        } else {
+            rootVC = Bundle.main.loadNibNamed("LoginViewController", owner: nil, options: nil)?.first as! LoginViewController
+        }
+        window!.rootViewController = rootVC
+        window!.makeKeyAndVisible()
         return true
     }
 
