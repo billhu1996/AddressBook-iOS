@@ -29,6 +29,7 @@
                                          contact.lastName = element[@"last_name"];
                                          contact.imageUrl = element[@"image_url"];
                                          contact.twitter = element[@"twitter"];
+                                         contact.skype = element[@"skype"];
                                          contact.notes = element[@"notes"];
                                          [array addObject:contact];
                                      }

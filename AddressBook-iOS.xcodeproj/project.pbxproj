@@ -12,9 +12,12 @@
 		A9D65D1B1DCF30F60055CB02 /* ContactInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D65D1A1DCF30F60055CB02 /* ContactInfo.m */; };
 		A9D65D1E1DCF37860055CB02 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D65D1D1DCF37860055CB02 /* Group.m */; };
 		A9D65D211DCF37AD0055CB02 /* GroupRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D65D201DCF37AD0055CB02 /* GroupRelationship.m */; };
+		A9D65D241DD018BB0055CB02 /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D65D221DD018BB0055CB02 /* ContactViewCell.swift */; };
+		A9D65D251DD018BB0055CB02 /* ContactViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D65D231DD018BB0055CB02 /* ContactViewCell.xib */; };
+		A9D65D291DD020F20055CB02 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D65D281DD020F20055CB02 /* ContactTableViewController.swift */; };
+		A9D65D301DD022FE0055CB02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D65D2F1DD022FE0055CB02 /* Assets.xcassets */; };
 		A9E3009F1DC849250052F45D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3009E1DC849250052F45D /* AppDelegate.swift */; };
 		A9E300A61DC849250052F45D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E300A41DC849250052F45D /* Main.storyboard */; };
-		A9E300A81DC849250052F45D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9E300A71DC849250052F45D /* Assets.xcassets */; };
 		A9E300AB1DC849250052F45D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E300A91DC849250052F45D /* LaunchScreen.storyboard */; };
 		A9E300B61DC849250052F45D /* AddressBook_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E300B51DC849250052F45D /* AddressBook_iOSTests.swift */; };
 		A9E300C11DC849250052F45D /* AddressBook_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E300C01DC849250052F45D /* AddressBook_iOSUITests.swift */; };
@@ -62,10 +65,13 @@
 		A9D65D1D1DCF37860055CB02 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group.m; path = Model/Group/Group.m; sourceTree = "<group>"; };
 		A9D65D1F1DCF37AD0055CB02 /* GroupRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupRelationship.h; path = Model/Group/GroupRelationship.h; sourceTree = "<group>"; };
 		A9D65D201DCF37AD0055CB02 /* GroupRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupRelationship.m; path = Model/Group/GroupRelationship.m; sourceTree = "<group>"; };
+		A9D65D221DD018BB0055CB02 /* ContactViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactViewCell.swift; path = View/ContactViewCell.swift; sourceTree = "<group>"; };
+		A9D65D231DD018BB0055CB02 /* ContactViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactViewCell.xib; path = View/ContactViewCell.xib; sourceTree = "<group>"; };
+		A9D65D281DD020F20055CB02 /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactTableViewController.swift; path = Controller/Contact/ContactTableViewController.swift; sourceTree = "<group>"; };
+		A9D65D2F1DD022FE0055CB02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9E3009B1DC849250052F45D /* AddressBook-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AddressBook-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E3009E1DC849250052F45D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9E300A51DC849250052F45D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A9E300A71DC849250052F45D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9E300AA1DC849250052F45D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9E300AC1DC849250052F45D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9E300B11DC849250052F45D /* AddressBook-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AddressBook-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +178,21 @@
 			name = Group;
 			sourceTree = "<group>";
 		};
+		A9D65D261DD020750055CB02 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				A9D65D281DD020F20055CB02 /* ContactTableViewController.swift */,
+			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
+		A9D65D271DD0207D0055CB02 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
 		A9E300921DC849250052F45D = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +261,8 @@
 		A9E300D11DC8626C0052F45D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A9D65D221DD018BB0055CB02 /* ContactViewCell.swift */,
+				A9D65D231DD018BB0055CB02 /* ContactViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -247,8 +270,10 @@
 		A9E300D21DC862720052F45D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A9E300E91DC86A870052F45D /* MSRAnimationInfo.swift */,
+				A9D65D261DD020750055CB02 /* Contact */,
+				A9D65D271DD0207D0055CB02 /* Group */,
 				A9E300DC1DC863090052F45D /* Login */,
+				A9E300E91DC86A870052F45D /* MSRAnimationInfo.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -261,7 +286,7 @@
 				A9E300A91DC849250052F45D /* LaunchScreen.storyboard */,
 				A9E300CE1DC862540052F45D /* Configuration.plist */,
 				A9E300AC1DC849250052F45D /* Info.plist */,
-				A9E300A71DC849250052F45D /* Assets.xcassets */,
+				A9D65D2F1DD022FE0055CB02 /* Assets.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -420,10 +445,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9E300AB1DC849250052F45D /* LaunchScreen.storyboard in Resources */,
+				A9D65D301DD022FE0055CB02 /* Assets.xcassets in Resources */,
 				A9E300E01DC863090052F45D /* LoginViewController.xib in Resources */,
 				A9E300CF1DC862540052F45D /* Configuration.plist in Resources */,
-				A9E300A81DC849250052F45D /* Assets.xcassets in Resources */,
 				A9E300A61DC849250052F45D /* Main.storyboard in Resources */,
+				A9D65D251DD018BB0055CB02 /* ContactViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +530,9 @@
 				A9D65D211DCF37AD0055CB02 /* GroupRelationship.m in Sources */,
 				A9D54B5B1DCF122A002F4D18 /* Contact.m in Sources */,
 				A9E3009F1DC849250052F45D /* AppDelegate.swift in Sources */,
+				A9D65D291DD020F20055CB02 /* ContactTableViewController.swift in Sources */,
 				A9D65D1E1DCF37860055CB02 /* Group.m in Sources */,
+				A9D65D241DD018BB0055CB02 /* ContactViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
