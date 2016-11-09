@@ -17,7 +17,8 @@
     [[NetworkManager defaultManager] GET:@"Contact"
                               parameters:@{
                                            @"limit": @20,
-                                           @"offset": @(page)
+                                           @"offset": @(page * 20),
+                                           @"order": @"last_name"
                                            }
                                  success:^(NSDictionary *dic) {
                                      NSArray *data = dic[@"resource"];
@@ -36,7 +37,41 @@
                                      success(array);
                                  }
                                  failure:^(NSError *error) {
-                                     failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     if (failure) {
+                                         failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     }
+                                 }];
+}
+
++(void)fetchsingleContactWithID:(NSInteger)ID
+                        success:(void (^)(id))success
+                        failure:(void (^)(NSString *))failure {
+    NSString *filter = [NSString stringWithFormat:@"id=%ld", (long)ID];
+    [[NetworkManager defaultManager] GET:@"Contact"
+                              parameters:@{
+                                           @"filter": filter
+                                           }
+                                 success:^(NSDictionary *dic) {
+                                     NSArray *data = dic[@"resource"];
+                                     Contact *contact = [[Contact alloc] init];
+                                     if (data.count >= 1) {
+                                         NSDictionary *element = data[0];
+                                         contact.ID = [element[@"id"] integerValue];
+                                         contact.firstName = element[@"first_name"];
+                                         contact.lastName = element[@"last_name"];
+                                         contact.imageUrl = element[@"image_url"];
+                                         contact.twitter = element[@"twitter"];
+                                         contact.skype = element[@"skype"];
+                                         contact.notes = element[@"notes"];
+                                         success(contact);
+                                     } else {
+                                         failure(@"no more data");
+                                     }
+                                 }
+                                 failure:^(NSError *error) {
+                                     if (failure) {
+                                         failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     }
                                  }];
 }
 
@@ -65,7 +100,9 @@
                                      success(data[@"resource"][0][@"id"]);
                                  }
                                  failure:^(NSError *error) {
-                                     failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     if (failure) {
+                                         failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     }
                                  }];
 }
 +(void)createNewContact:(NSString *)firstName
@@ -92,7 +129,40 @@
                                       success(data[@"resource"][0][@"id"]);
                                   }
                                   failure:^(NSError *error) {
-                                      failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                      if (failure) {
+                                          failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                      }
                                   }];
 }
+
++(void)deleteContact:(NSInteger)ID
+             success:(void (^)(id))success
+             failure:(void (^)(NSString *))failure {
+    NSString *filter = [NSString stringWithFormat:@"id=%ld", (long)ID];
+    [[NetworkManager defaultManager] DELETE:@"Contact"
+                                 parameters:@{
+                                              @"filter": filter
+                                              }
+                                    success:^(NSDictionary *data) {
+                                        NSString *filter = [NSString stringWithFormat:@"(contact_id=%ld)", (long)ID];
+                                        [[NetworkManager defaultManager] DELETE:@"Contact Group Relationship"
+                                                                     parameters:@{
+                                                                                  @"filter": filter
+                                                                                  }
+                                                                        success:^(NSDictionary *data) {
+                                                                            success(data[@"resource"] );
+                                                                        }
+                                                                        failure:^(NSError *error) {
+                                                                            if (failure) {
+                                                                                failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                                                            }
+                                                                        }];
+                                    }
+                                    failure:^(NSError *error) {
+                                        if (failure) {
+                                            failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                        }
+                                    }];
+}
+
 @end

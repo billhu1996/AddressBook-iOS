@@ -12,12 +12,13 @@
 @implementation Group
 
 +(void)fetchGroup:(NSInteger)page
-            success:(void (^)(id))success
-            failure:(void (^)(NSString *))failure {
-    [[NetworkManager defaultManager] GET:@"Group"
+          success:(void (^)(id))success
+          failure:(void (^)(NSString *))failure {
+    [[NetworkManager defaultManager] GET:@"Contact Group"
                               parameters:@{
                                            @"limit": @20,
-                                           @"offset": @(page)
+                                           @"offset": @(page * 20),
+                                           @"order": @"name"
                                            }
                                  success:^(NSDictionary *dic) {
                                      NSArray *data = dic[@"resource"];
@@ -31,15 +32,14 @@
                                      success(array);
                                  }
                                  failure:^(NSError *error) {
-                                     failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
                                  }];
 }
 
 +(void)editGroup:(NSInteger)ID
             name:(NSString *)name
-           success:(void (^)(id))success
-           failure:(void (^)(NSString *))failure {
-    [[NetworkManager defaultManager] PUT:@"Group"
+         success:(void (^)(id))success
+         failure:(void (^)(NSString *))failure {
+    [[NetworkManager defaultManager] PUT:@"Contact Group"
                               parameters:@{
                                            @"resource": @{
                                                    @"id": @(ID),
@@ -50,14 +50,16 @@
                                      success(data[@"resource"][0][@"id"]);
                                  }
                                  failure:^(NSError *error) {
-                                     failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     if (failure) {
+                                         failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     }
                                  }];
 }
 
 +(void)createNewGroup:(NSString *)name
-                success:(void (^)(id))success
-                failure:(void (^)(NSString *))failure {
-    [[NetworkManager defaultManager] POST:@"Group"
+              success:(void (^)(id))success
+              failure:(void (^)(NSString *))failure {
+    [[NetworkManager defaultManager] POST:@"Contact Group"
                             GETParameters: nil
                            POSTParameters:@{
                                             @"resource": @{
@@ -68,8 +70,28 @@
                                       success(data[@"resource"][0][@"id"]);
                                   }
                                   failure:^(NSError *error) {
-                                      failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                      if (failure) {
+                                          failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                      }
                                   }];
+}
+
++(void)deleteGroup:(NSInteger)ID
+           success:(void (^)(id))success
+           failure:(void (^)(NSString *))failure {
+    NSString *filter = [NSString stringWithFormat:@"id=%ld", (long)ID];
+    [[NetworkManager defaultManager] DELETE:@"Contact Group"
+                                 parameters:@{
+                                              @"filter": filter
+                                              }
+                                    success:^(NSDictionary *data) {
+                                        success(data[@"resource"] );
+                                    }
+                                    failure:^(NSError *error) {
+                                        if (failure) {
+                                            failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                        }
+                                    }];
 }
 
 @end

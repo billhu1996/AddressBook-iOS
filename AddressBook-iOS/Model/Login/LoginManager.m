@@ -91,12 +91,14 @@
                              POSTParameters:@{
                                               @"email": email
                                               }
-                                    success:^(NSDictionary *data) {
-                                        success(@"success");
-                                    }
-                                    failure:^(NSError *error) {
-                                        failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
-                                    }];
+                                  success:^(NSDictionary *data) {
+                                      success(@"success");
+                                  }
+                                  failure:^(NSError *error) {
+                                      if (failure) {
+                                          failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                      }
+                                  }];
 }
 
 +(void)refreshToken

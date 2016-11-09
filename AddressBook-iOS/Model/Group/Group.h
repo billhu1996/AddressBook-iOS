@@ -26,4 +26,8 @@
               success:(void (^)(id))success
               failure:(void (^)(NSString *))failure;
 
++(void)deleteGroup:(NSInteger)ID
+           success:(void (^)(id))success
+           failure:(void (^)(NSString *))failure;
+
 @end

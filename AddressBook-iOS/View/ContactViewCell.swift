@@ -25,14 +25,8 @@ class ContactViewCell: UITableViewCell {
     }
     
     func update(contact: Contact) {
-        if let firstname = contact.firstName {
-            if let lastname = contact.lastName {
-                nameLabel.text = "\(firstname) \(lastname)"
-            }
-        }
-        if let skype = contact.skype {
-            skypeLabel.text = skype
-        }
+        nameLabel.text = "\(contact.lastName ?? "") \(contact.firstName ?? "")"
+        skypeLabel.text = contact.skype ?? ""
         setNeedsLayout()
         layoutIfNeeded()
     }

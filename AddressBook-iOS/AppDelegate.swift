@@ -11,6 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    static var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var window: UIWindow?
     var rootVC: UIViewController?
 
@@ -18,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SMSSDK.registerApp(NetworkManager.default().smSappKey, withSecret: NetworkManager.default().smSappSecret)
         window = UIWindow(frame: UIScreen.main.bounds)
         if NetworkManager.default().token != nil {
-//            LoginManager.refreshToken()
+            LoginManager.refreshToken()
             rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
         } else {
             rootVC = Bundle.main.loadNibNamed("LoginViewController", owner: nil, options: nil)?.first as! LoginViewController

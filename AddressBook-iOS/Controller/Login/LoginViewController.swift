@@ -261,4 +261,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
 }

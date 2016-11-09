@@ -26,8 +26,12 @@
                 success:(void (^)(id))success
                 failure:(void (^)(NSString *))failure;
 
++(void)fetchContactInfoWithID:(NSInteger)ID
+                      success:(void (^)(id))success
+                      failure:(void (^)(NSString *))failure;
+
 +(void)editContactInfo:(NSInteger)ID
-             infoType:(NSString *)infoType
+              infoType:(NSString *)infoType
                  phone:(NSString *)phone
                  email:(NSString *)email
                address:(NSString *)address
@@ -38,7 +42,8 @@
                success:(void (^)(id))success
                failure:(void (^)(NSString *))failure;
 
-+(void)createNewContactInfo:(NSString *)infoType
++(void)createNewContactInfo:(NSInteger)contactID
+                   infoType:(NSString *)infoType
                       phone:(NSString *)phone
                       email:(NSString *)email
                     address:(NSString *)address

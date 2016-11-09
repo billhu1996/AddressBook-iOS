@@ -17,7 +17,7 @@
     [[NetworkManager defaultManager] GET:@"Contact Info"
                               parameters:@{
                                            @"limit": @20,
-                                           @"offset": @(page)
+                                           @"offset": @(page * 20)
                                            }
                                  success:^(NSDictionary *dic) {
                                      NSArray *data = dic[@"resource"];
@@ -38,7 +38,42 @@
                                      success(array);
                                  }
                                  failure:^(NSError *error) {
-                                     failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     if (failure) {
+                                         failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     }
+                                 }];
+}
+
++(void)fetchContactInfoWithID:(NSInteger)ID
+                      success:(void (^)(id))success
+                      failure:(void (^)(NSString *))failure {
+    NSString *filter = [NSString stringWithFormat:@"contact_id=%ld", (long)ID];
+    [[NetworkManager defaultManager] GET:@"Contact Info"
+                              parameters:@{
+                                           @"filter": filter
+                                           }
+                                 success:^(NSDictionary *dic) {
+                                     NSArray *data = dic[@"resource"];
+                                     NSMutableArray *array = [[NSMutableArray alloc] init];
+                                     for (NSDictionary *element in data) {
+                                         ContactInfo *contactInfo = [[ContactInfo alloc] init];
+                                         contactInfo.ID = [element[@"id"] integerValue];
+                                         contactInfo.infoType = element[@"info_type"];
+                                         contactInfo.phone = element[@"phone"];
+                                         contactInfo.email = element[@"email"];
+                                         contactInfo.address = element[@"address"];
+                                         contactInfo.city = element[@"city"];
+                                         contactInfo.state = element[@"state"];
+                                         contactInfo.zip = element[@"zip"];
+                                         contactInfo.country = element[@"country"];
+                                         [array addObject:contactInfo];
+                                     }
+                                     success(array);
+                                 }
+                                 failure:^(NSError *error) {
+                                     if (failure) {
+                                         failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     }
                                  }];
 }
 
@@ -56,6 +91,7 @@
     [[NetworkManager defaultManager] PUT:@"Contact Info"
                               parameters:@{
                                            @"resource": @{
+                                                   @"id": @(ID),
                                                    @"info_type": infoType,
                                                    @"phone": phone,
                                                    @"email": email,
@@ -70,11 +106,14 @@
                                      success(data[@"resource"][0][@"id"]);
                                  }
                                  failure:^(NSError *error) {
-                                     failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     if (failure) {
+                                         failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     }
                                  }];
 }
 
-+(void)createNewContactInfo:(NSString *)infoType
++(void)createNewContactInfo:(NSInteger)contactID
+                   infoType:(NSString *)infoType
                       phone:(NSString *)phone
                       email:(NSString *)email
                     address:(NSString *)address
@@ -88,6 +127,8 @@
                             GETParameters: nil
                            POSTParameters:@{
                                             @"resource": @{
+                                                    @"contact_id": @(contactID),
+                                                    @"ordinal": @(0),
                                                     @"info_type": infoType,
                                                     @"phone": phone,
                                                     @"email": email,
@@ -102,7 +143,9 @@
                                       success(data[@"resource"][0][@"id"]);
                                   }
                                   failure:^(NSError *error) {
-                                      failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                      if (failure) {
+                                          failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                      }
                                   }];
 }
 

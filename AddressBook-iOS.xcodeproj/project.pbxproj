@@ -35,6 +35,16 @@
 		A9E300F01DC86AC10052F45D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E300EF1DC86AC10052F45D /* MessageUI.framework */; };
 		A9E300F21DC86AC80052F45D /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E300F11DC86AC80052F45D /* JavaScriptCore.framework */; };
 		A9E300F41DC86AD20052F45D /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E300F31DC86AD20052F45D /* libstdc++.tbd */; };
+		A9EF37E91DD19B66005896F3 /* ContactBasicViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF37E71DD19B66005896F3 /* ContactBasicViewCell.swift */; };
+		A9EF37EA1DD19B66005896F3 /* ContactBasicViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9EF37E81DD19B66005896F3 /* ContactBasicViewCell.xib */; };
+		A9EF37F11DD1B75A005896F3 /* ContactDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF37EF1DD1B75A005896F3 /* ContactDetailViewCell.swift */; };
+		A9EF37F21DD1B75A005896F3 /* ContactDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9EF37F01DD1B75A005896F3 /* ContactDetailViewCell.xib */; };
+		A9EF37F61DD1E619005896F3 /* ContactDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF37F51DD1E619005896F3 /* ContactDetailHeader.swift */; };
+		A9EF37FA1DD1E80E005896F3 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF37F91DD1E80E005896F3 /* ContactDetailViewController.swift */; };
+		A9EF37FC1DD1E829005896F3 /* ContactDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9EF37FB1DD1E829005896F3 /* ContactDetailHeader.xib */; };
+		A9FEE6881DD0CAC000C90BE2 /* GroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEE6871DD0CAC000C90BE2 /* GroupTableViewController.swift */; };
+		A9FEE68B1DD0CD5900C90BE2 /* GroupViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEE6891DD0CD5900C90BE2 /* GroupViewCell.swift */; };
+		A9FEE68C1DD0CD5900C90BE2 /* GroupViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FEE68A1DD0CD5900C90BE2 /* GroupViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,16 +68,16 @@
 		30A87669227771BE2444250F /* Pods-AddressBook-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AddressBook-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AddressBook-iOS/Pods-AddressBook-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5D37CAB6830AF3F66DF9439E /* Pods-AddressBook-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AddressBook-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AddressBook-iOS/Pods-AddressBook-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A9D54B591DCF122A002F4D18 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = Model/Contact/Contact.h; sourceTree = "<group>"; };
-		A9D54B5A1DCF122A002F4D18 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = Model/Contact/Contact.m; sourceTree = "<group>"; };
+		A9D54B5A1DCF122A002F4D18 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = Contact.m; path = Model/Contact/Contact.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A9D65D191DCF30F60055CB02 /* ContactInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactInfo.h; path = Model/Contact/ContactInfo.h; sourceTree = "<group>"; };
-		A9D65D1A1DCF30F60055CB02 /* ContactInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactInfo.m; path = Model/Contact/ContactInfo.m; sourceTree = "<group>"; };
+		A9D65D1A1DCF30F60055CB02 /* ContactInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ContactInfo.m; path = Model/Contact/ContactInfo.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A9D65D1C1DCF37860055CB02 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Group.h; path = Model/Group/Group.h; sourceTree = "<group>"; };
-		A9D65D1D1DCF37860055CB02 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group.m; path = Model/Group/Group.m; sourceTree = "<group>"; };
+		A9D65D1D1DCF37860055CB02 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = Group.m; path = Model/Group/Group.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A9D65D1F1DCF37AD0055CB02 /* GroupRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupRelationship.h; path = Model/Group/GroupRelationship.h; sourceTree = "<group>"; };
-		A9D65D201DCF37AD0055CB02 /* GroupRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupRelationship.m; path = Model/Group/GroupRelationship.m; sourceTree = "<group>"; };
+		A9D65D201DCF37AD0055CB02 /* GroupRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = GroupRelationship.m; path = Model/Group/GroupRelationship.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A9D65D221DD018BB0055CB02 /* ContactViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactViewCell.swift; path = View/ContactViewCell.swift; sourceTree = "<group>"; };
 		A9D65D231DD018BB0055CB02 /* ContactViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactViewCell.xib; path = View/ContactViewCell.xib; sourceTree = "<group>"; };
-		A9D65D281DD020F20055CB02 /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactTableViewController.swift; path = Controller/Contact/ContactTableViewController.swift; sourceTree = "<group>"; };
+		A9D65D281DD020F20055CB02 /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ContactTableViewController.swift; path = Controller/Contact/ContactTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A9D65D2F1DD022FE0055CB02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9E3009B1DC849250052F45D /* AddressBook-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AddressBook-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E3009E1DC849250052F45D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +95,7 @@
 		A9E300D51DC862EF0052F45D /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = NetworkManager.h; path = Model/NetworkManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A9E300D61DC862EF0052F45D /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = NetworkManager.m; path = Model/NetworkManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A9E300D81DC862EF0052F45D /* LoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
-		A9E300D91DC862EF0052F45D /* LoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
+		A9E300D91DC862EF0052F45D /* LoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LoginManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A9E300DD1DC863090052F45D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9E300DE1DC863090052F45D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A9E300E31DC86A620052F45D /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
@@ -97,6 +107,16 @@
 		A9E300EF1DC86AC10052F45D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A9E300F11DC86AC80052F45D /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		A9E300F31DC86AD20052F45D /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		A9EF37E71DD19B66005896F3 /* ContactBasicViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactBasicViewCell.swift; path = View/ContactBasicViewCell.swift; sourceTree = "<group>"; };
+		A9EF37E81DD19B66005896F3 /* ContactBasicViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactBasicViewCell.xib; path = View/ContactBasicViewCell.xib; sourceTree = "<group>"; };
+		A9EF37EF1DD1B75A005896F3 /* ContactDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactDetailViewCell.swift; path = View/ContactDetailViewCell.swift; sourceTree = "<group>"; };
+		A9EF37F01DD1B75A005896F3 /* ContactDetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactDetailViewCell.xib; path = View/ContactDetailViewCell.xib; sourceTree = "<group>"; };
+		A9EF37F51DD1E619005896F3 /* ContactDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactDetailHeader.swift; path = View/ContactDetailHeader.swift; sourceTree = "<group>"; };
+		A9EF37F91DD1E80E005896F3 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactDetailViewController.swift; path = Controller/Contact/ContactDetailViewController.swift; sourceTree = "<group>"; };
+		A9EF37FB1DD1E829005896F3 /* ContactDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactDetailHeader.xib; path = View/ContactDetailHeader.xib; sourceTree = "<group>"; };
+		A9FEE6871DD0CAC000C90BE2 /* GroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupTableViewController.swift; path = Controller/Group/GroupTableViewController.swift; sourceTree = "<group>"; };
+		A9FEE6891DD0CD5900C90BE2 /* GroupViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupViewCell.swift; path = View/GroupViewCell.swift; sourceTree = "<group>"; };
+		A9FEE68A1DD0CD5900C90BE2 /* GroupViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupViewCell.xib; path = View/GroupViewCell.xib; sourceTree = "<group>"; };
 		FE935167025C97101AF10ABE /* libPods-AddressBook-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AddressBook-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -182,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				A9D65D281DD020F20055CB02 /* ContactTableViewController.swift */,
+				A9EF37F91DD1E80E005896F3 /* ContactDetailViewController.swift */,
 			);
 			name = Contact;
 			sourceTree = "<group>";
@@ -189,6 +210,7 @@
 		A9D65D271DD0207D0055CB02 /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				A9FEE6871DD0CAC000C90BE2 /* GroupTableViewController.swift */,
 			);
 			name = Group;
 			sourceTree = "<group>";
@@ -263,6 +285,14 @@
 			children = (
 				A9D65D221DD018BB0055CB02 /* ContactViewCell.swift */,
 				A9D65D231DD018BB0055CB02 /* ContactViewCell.xib */,
+				A9FEE6891DD0CD5900C90BE2 /* GroupViewCell.swift */,
+				A9FEE68A1DD0CD5900C90BE2 /* GroupViewCell.xib */,
+				A9EF37E71DD19B66005896F3 /* ContactBasicViewCell.swift */,
+				A9EF37E81DD19B66005896F3 /* ContactBasicViewCell.xib */,
+				A9EF37EF1DD1B75A005896F3 /* ContactDetailViewCell.swift */,
+				A9EF37F01DD1B75A005896F3 /* ContactDetailViewCell.xib */,
+				A9EF37F51DD1E619005896F3 /* ContactDetailHeader.swift */,
+				A9EF37FB1DD1E829005896F3 /* ContactDetailHeader.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -444,8 +474,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9EF37FC1DD1E829005896F3 /* ContactDetailHeader.xib in Resources */,
 				A9E300AB1DC849250052F45D /* LaunchScreen.storyboard in Resources */,
+				A9FEE68C1DD0CD5900C90BE2 /* GroupViewCell.xib in Resources */,
 				A9D65D301DD022FE0055CB02 /* Assets.xcassets in Resources */,
+				A9EF37F21DD1B75A005896F3 /* ContactDetailViewCell.xib in Resources */,
+				A9EF37EA1DD19B66005896F3 /* ContactBasicViewCell.xib in Resources */,
 				A9E300E01DC863090052F45D /* LoginViewController.xib in Resources */,
 				A9E300CF1DC862540052F45D /* Configuration.plist in Resources */,
 				A9E300A61DC849250052F45D /* Main.storyboard in Resources */,
@@ -522,12 +556,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9EF37F11DD1B75A005896F3 /* ContactDetailViewCell.swift in Sources */,
 				A9E300DA1DC862EF0052F45D /* NetworkManager.m in Sources */,
 				A9E300DF1DC863090052F45D /* LoginViewController.swift in Sources */,
 				A9E300DB1DC862EF0052F45D /* LoginManager.m in Sources */,
+				A9EF37FA1DD1E80E005896F3 /* ContactDetailViewController.swift in Sources */,
 				A9D65D1B1DCF30F60055CB02 /* ContactInfo.m in Sources */,
 				A9E300EA1DC86A870052F45D /* MSRAnimationInfo.swift in Sources */,
+				A9FEE68B1DD0CD5900C90BE2 /* GroupViewCell.swift in Sources */,
+				A9EF37F61DD1E619005896F3 /* ContactDetailHeader.swift in Sources */,
+				A9FEE6881DD0CAC000C90BE2 /* GroupTableViewController.swift in Sources */,
 				A9D65D211DCF37AD0055CB02 /* GroupRelationship.m in Sources */,
+				A9EF37E91DD19B66005896F3 /* ContactBasicViewCell.swift in Sources */,
 				A9D54B5B1DCF122A002F4D18 /* Contact.m in Sources */,
 				A9E3009F1DC849250052F45D /* AppDelegate.swift in Sources */,
 				A9D65D291DD020F20055CB02 /* ContactTableViewController.swift in Sources */,

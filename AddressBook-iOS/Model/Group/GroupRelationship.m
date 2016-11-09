@@ -20,8 +20,9 @@
     [[NetworkManager defaultManager] GET:@"Contact In Group"
                               parameters:@{
                                            @"limit": @20,
-                                           @"offset": @(page),
-                                           @"filter": filter
+                                           @"offset": @(page * 20),
+                                           @"filter": filter,
+                                           @"order": @"last_name"
                                            }
                                  success:^(NSDictionary *dic) {
                                      NSArray *data = dic[@"resource"];
@@ -34,12 +35,15 @@
                                          contact.imageUrl = element[@"image_url"];
                                          contact.twitter = element[@"twitter"];
                                          contact.notes = element[@"notes"];
+                                         contact.skype = element[@"skype"];
                                          [array addObject:contact];
                                      }
                                      success(array);
                                  }
                                  failure:^(NSError *error) {
-                                     failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     if (failure) {
+                                         failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                     }
                                  }];
 }
 
@@ -59,7 +63,9 @@
                                       success(data[@"resource"][0][@"id"]);
                                   }
                                   failure:^(NSError *error) {
-                                      failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                      if (failure) {
+                                          failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                      }
                                   }];
 }
 
@@ -76,7 +82,9 @@
                                         success(data[@"resource"][0][@"id"]);
                                     }
                                     failure:^(NSError *error) {
-                                        failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                        if (failure) {
+                                          failure(error.userInfo[NSLocalizedFailureReasonErrorKey]);
+                                      }
                                     }];
 }
 

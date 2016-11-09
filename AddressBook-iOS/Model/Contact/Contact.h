@@ -22,6 +22,10 @@
             success:(void (^)(id))success
             failure:(void (^)(NSString *))failure;
 
++(void)fetchsingleContactWithID:(NSInteger)ID
+                        success:(void (^)(id))success
+                        failure:(void (^)(NSString *))failure;
+
 +(void)editContact:(NSInteger)ID
          firstName:(NSString *)firstName
           lastName:(NSString *)lastName
@@ -40,5 +44,9 @@
                   notes:(NSString *)notes
                 success:(void (^)(id))success
                 failure:(void (^)(NSString *))failure;
+
++(void)deleteContact:(NSInteger)ID
+             success:(void (^)(id))success
+             failure:(void (^)(NSString *))failure;
 
 @end
