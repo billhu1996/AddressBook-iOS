@@ -29,7 +29,7 @@
                                      NSMutableArray *array = [[NSMutableArray alloc] init];
                                      for (NSDictionary *element in data) {
                                          Contact *contact = [[Contact alloc] init];
-                                         contact.ID = [element[@"id"] integerValue];
+                                         contact.ID = [element[@"contact_id"] integerValue];
                                          contact.firstName = element[@"first_name"];
                                          contact.lastName = element[@"last_name"];
                                          contact.imageUrl = element[@"image_url"];

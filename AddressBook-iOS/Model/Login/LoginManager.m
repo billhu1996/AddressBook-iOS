@@ -9,6 +9,7 @@
 #import "LoginManager.h"
 #import "NetworkManager.h"
 #import <SMS_SDK/SMSSDK.h>
+#import "AddressBook_iOS-Swift.h"
 
 @implementation LoginManager
 
@@ -107,7 +108,9 @@
         NSString *session = data[@"session_token"];
         [NetworkManager defaultManager].token = session;
     } failure:^(NSError *error) {
-#warning 登陆保持
+        [AppDelegate appDelegate].rootVC = [[NSBundle mainBundle] loadNibNamed:@"LoginViewController" owner:nil options:nil].firstObject;
+        [AppDelegate appDelegate].window.rootViewController = [AppDelegate appDelegate].rootVC;
+        [[AppDelegate appDelegate].window makeKeyAndVisible];
     }];
 }
 

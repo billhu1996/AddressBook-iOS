@@ -24,7 +24,9 @@ class ContactTableViewController: UITableViewController {
         tableView.register(UINib.init(nibName: cellNibName, bundle: Bundle.main), forCellReuseIdentifier: cellNibName)
         tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refresh))
         tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMore))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addNewContact))
+        if selectContactdelegate == nil {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addNewContact))
+        }
         tableView.tableFooterView = UIView()
     }
     
@@ -35,11 +37,29 @@ class ContactTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if group != nil && selectedContact != nil {
+            GroupRelationship.addContact(with: group!.id, contactID: selectedContact!.id,
+                                         success: {
+                                            [weak self] _ in
+                                            if let self_ = self {
+                                                self_.tableView.mj_header.beginRefreshing()
+                                            }
+            },
+                                         failure: {
+                                            fm in
+                                            print(fm ?? "")
+            })
+            selectedContact = nil
+        }
+    }
+    
     // MARK: - Table view datas
     
     func refresh() {
         page = 0
-        if let id = group?.id {
+        if let id = group?.id, selectContactdelegate == nil {
             GroupRelationship.fetchContact(with: id,
                                            page: page,
                                            success: {
@@ -78,7 +98,7 @@ class ContactTableViewController: UITableViewController {
     }
     
     func loadMore() {
-        if let id = group?.id {
+        if let id = group?.id, selectContactdelegate == nil {
             GroupRelationship.fetchContact(with: id,
                                            page: page,
                                            success: {
@@ -152,7 +172,10 @@ class ContactTableViewController: UITableViewController {
                                                         if let self_ = self {
                                                             self_.contacts.remove(at: indexPath.row)
                                                             self_.tableView.reloadData()
-                                                            self_.tableView.scrollToRow(at: IndexPath(row: indexPath.row, section: max(indexPath.row - 1, 0)), at: UITableViewScrollPosition.middle, animated: true)
+                                                            let indexPath = IndexPath(row: max(indexPath.row - 1, 0), section: indexPath.section)
+                                                            if self_.tableView.cellForRow(at: indexPath) != nil {
+                                                                self_.tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
+                                                            }
                                                         }
                         },
                                                     failure: nil)
@@ -167,7 +190,10 @@ class ContactTableViewController: UITableViewController {
                         if let self_ = self {
                             self_.contacts.remove(at: indexPath.row)
                             self_.tableView.reloadData()
-                            self_.tableView.scrollToRow(at: IndexPath(row: indexPath.row, section: max(indexPath.row - 1, 0)), at: UITableViewScrollPosition.middle, animated: true)
+                            let indexPath = IndexPath(row: max(indexPath.row - 1, 0), section: indexPath.section)
+                            if self_.tableView.cellForRow(at: indexPath) != nil {
+                                self_.tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
+                            }
                         }
                         }, failure: nil)
                 }))
@@ -182,16 +208,12 @@ class ContactTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if selectContactdelegate != nil {
             selectContactdelegate?.selectedContact = contacts[indexPath.row]
-            dismiss(animated: true, completion: {
-                [weak self] in
-                if let self_ = self {
-                    self_.selectContactdelegate?.addContactToGroup()
-                }
-            })
+            navigationController!.popViewController(animated: true)
         } else {
             let dvc = ContactDetailViewController(contact: contacts[indexPath.row])
             navigationController?.pushViewController(dvc, animated: true)
         }
+        tableView.cellForRow(at: indexPath)?.isSelected = false
     }
     
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
@@ -215,16 +237,19 @@ class ContactTableViewController: UITableViewController {
     }
     
     func addNewContact() {
-        if group != nil {
+        if group != nil && selectContactdelegate == nil {
             let cvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContactTableViewController") as! ContactTableViewController
             cvc.group = group
             cvc.selectContactdelegate = self
             navigationController?.pushViewController(cvc, animated: true)
-        } else {
+            print("")
+        } else if group == nil {
             let dvc = ContactDetailViewController()
             navigationController?.pushViewController(dvc, animated: true)
         }
     }
+    
+    
     
     /*
      // Override to support editing the table view.

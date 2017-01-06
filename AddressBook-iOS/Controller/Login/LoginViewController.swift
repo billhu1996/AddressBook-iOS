@@ -95,7 +95,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                        password: passwordField.text,
                                        success: {
                                         [weak self] data in
-                                        if let self_ = self {
+                                        if let _ = self {
                                             let appDelegate = UIApplication.shared.delegate! as! AppDelegate
                                             appDelegate.rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
                                             appDelegate.window!.rootViewController = appDelegate.rootVC
@@ -130,6 +130,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                     if let self_ = self {
                                                         self_.messageLabel.text = "success"
                                                         self_.finishedLoginOrRegister()
+                                                        self_.switchStatus(self_.switchButton)
                                                     }
                                 },
                                                 failure: { [weak self] error in

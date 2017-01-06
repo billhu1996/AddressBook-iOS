@@ -431,7 +431,7 @@
 				TargetAttributes = {
 					A9E3009A1DC849250052F45D = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = LZ6P43U8SJ;
+						DevelopmentTeam = ZRU9NS7944;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -726,7 +726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = LZ6P43U8SJ;
+				DEVELOPMENT_TEAM = ZRU9NS7944;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AddressBook-iOS/External/SMS_SDK",
@@ -747,7 +747,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = LZ6P43U8SJ;
+				DEVELOPMENT_TEAM = ZRU9NS7944;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AddressBook-iOS/External/SMS_SDK",

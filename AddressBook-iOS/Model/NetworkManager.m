@@ -78,17 +78,11 @@
     @try {
         NSMutableDictionary *GETP = [NSMutableDictionary dictionaryWithDictionary:GETParameters];
         NSString *websiteString;
-        //        if ([key  isEqual: @"Verfycode Website"]) {
-        //             websiteString = self.verfycodeWebsite;
-        //        } else {
         GETP[@"api_key"] = self.APIKey;
         GETP[@"session_token"] = self.token;
-        GETP[@"Content-Type"] = @"application/json";//application/x-www-form-urlencoded";
+        GETP[@"Content-Type"] = @"application/json";
         websiteString = [NSString stringWithFormat:@"%@%@", self.website, self.path[key]];
-        //        }
         NSString *URLString = [self.manager.requestSerializer requestWithMethod:@"GET" URLString:websiteString parameters:[NSDictionary dictionaryWithDictionary:GETP] error:nil].URL.absoluteString;
-        //        NSString *URLString = [self.manager.requestSerializer requestWithMethod:@"GET" URLString:websiteString parameters:[NSDictionary dictionaryWithDictionary:GETP]].URL.absoluteString;
-        //        NSLog(@"%@",URLString);
         NetworkManager __weak *weakSelf = self;
         if ([method  isEqual: @"PUT"]) {
             return [self.manager PUT:URLString parameters:POSTParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -212,11 +206,6 @@
 
 - (void)setToken:(NSString*)newToken {
     [[NSUserDefaults standardUserDefaults] setObject:newToken forKey:@"token"];
-    //    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:self.configuration];
-    //    data[@"Token"] = newToken;
-    //    NSLog(@"%@", [[NSBundle mainBundle] pathForResource:@"Configuration" ofType:@"plist"]);
-    //    [data writeToFile:[[NSBundle mainBundle] pathForResource:@"Configuration" ofType:@"plist"] atomically:YES];
-    //    self.configuration = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Configuration" ofType:@"plist" ]];
 }
 
 - (NSString *)APIKey {

@@ -101,7 +101,10 @@ class GroupTableViewController: UITableViewController {
                     if let self_ = self {
                         self_.groups.remove(at: indexPath.row)
                         self_.tableView.reloadData()
-                        self_.tableView.scrollToRow(at: IndexPath(row: indexPath.row, section: max(indexPath.row - 1, 0)), at: UITableViewScrollPosition.middle, animated: true)
+                        let indexPath = IndexPath(row: max(indexPath.row - 1, 0), section: indexPath.section)
+                        if self_.tableView.cellForRow(at: indexPath) != nil {
+                            self_.tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
+                        }
                     }
                     }, failure: nil)
             }))

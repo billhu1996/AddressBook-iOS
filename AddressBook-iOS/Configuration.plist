@@ -19,11 +19,11 @@
 		<key>Contact In Group</key>
 		<string>db/_table/contact_in_group</string>
 		<key>Login</key>
-		<string>user/session/</string>
+		<string>user/session</string>
 		<key>Register</key>
-		<string>user/register/</string>
+		<string>user/register</string>
 		<key>Change Password</key>
-		<string>user/password/</string>
+		<string>user/password</string>
 	</dict>
 	<key>APIKey</key>
 	<string>36fda24fe5588fa4285ac6c6c2fdfbdb6b6bc9834699774c9bf777f706d05a88</string>

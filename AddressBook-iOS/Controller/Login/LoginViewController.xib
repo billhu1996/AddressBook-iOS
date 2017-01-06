@@ -26,7 +26,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KsJ-Bj-gSy" userLabel="Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="dxO-AL-d7w">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="dxO-AL-d7w">
                                         <rect key="frame" x="148" y="100" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Vyw-Z9-A7Q"/>
@@ -228,6 +228,6 @@
         </viewController>
     </objects>
     <resources>
-        <image name="Logo" width="60" height="60"/>
+        <image name="icon" width="60" height="60"/>
     </resources>
 </document>
